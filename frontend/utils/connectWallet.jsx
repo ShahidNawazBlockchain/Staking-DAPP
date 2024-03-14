@@ -1,7 +1,6 @@
 import { ethers, Contract,BrowserProvider } from "ethers";
 import StakingABI from "../ABI/stakingABI.json";
 import StakeTokenABI from "../ABI/stakeTokenABI.json";
-
 export const connectWallet = async () => {
     try {
         if (!window.ethereum) {
