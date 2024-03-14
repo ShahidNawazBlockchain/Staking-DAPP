@@ -19,7 +19,11 @@ const Wallet = () => {
 
 useEffect(()=>{
  window.ethereum.on('accountsChanged',()=>handleAccountChange(setState))
- window.ethereum.on('accountsChanged',()=>handleChange(setState)) 
+ window.ethereum.on('chainChanged',()=>handleChange(setState))
+ return()=>{
+  window.ethereum.removeListener('accountsChanged',()=>handleAccountChange(setState))
+  window.ethereum.removeListener('chainChanged',()=>handleChange(setState)) 
+ }
 },[])
 
  const handleWallet = async () => {
@@ -27,7 +31,6 @@ useEffect(()=>{
       setLoading(true);
    
       const { provider, selectedAccount, stakingContract, stakeTokenContract, chainId } = await connectWallet();
-      console.log(provider, selectedAccount, stakingContract, stakeTokenContract, chainId);
       setState({ provider, selectedAccount, stakingContract, stakeTokenContract, chainId });
     } catch (error) {
       console.error("Error connecting wallet", error.message);
