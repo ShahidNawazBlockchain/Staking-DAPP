@@ -6,7 +6,7 @@ import { handleAccountChange } from '@/utils/handleAccountChange';
 import { handleChange } from '@/utils/handleChainChange';
 
 
-const Wallet = () => {
+const Wallet = ({children}) => {
  const [state, setState] = useState({
     provider: null,
     account: null,
@@ -45,6 +45,7 @@ useEffect(()=>{
         <button onClick={handleWallet} disabled={loading}>
           {loading ? 'Connecting...' : 'Connect Wallet'}
         </button>
+        {children}
       </div>
     </Web3Context.Provider>
  );
