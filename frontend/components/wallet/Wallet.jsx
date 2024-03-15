@@ -31,6 +31,7 @@ useEffect(()=>{
       setLoading(true);
    
       const { provider, selectedAccount, stakingContract, stakeTokenContract, chainId } = await connectWallet();
+      // console.log({ provider, selectedAccount, stakingContract, stakeTokenContract, chainId })
       setState({ provider, selectedAccount, stakingContract, stakeTokenContract, chainId });
     } catch (error) {
       console.error("Error connecting wallet", error.message);
