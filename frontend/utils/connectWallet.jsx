@@ -21,7 +21,7 @@ export const connectWallet = async () => {
         const chainId = parseInt(chainIdHex, 16);
         const selectedAccount = accounts[0];
 
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
 
         const stakingContractAddress = "0x4a0f25b3d6Bb5d72c47054d104739ff9402d1988";
