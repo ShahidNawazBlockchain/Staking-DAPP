@@ -33,7 +33,7 @@ const StakeAmount = () => {
         }
     }
   return (
-    <div>    {transactionStatus}
+    <div>{transactionStatus}
     <form onSubmit={stakeToken}>
     <lebe>Token Stake:</lebe>
     <input ref={stakeTokenRef}/>
